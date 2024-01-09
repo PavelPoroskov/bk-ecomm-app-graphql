@@ -1,0 +1,2 @@
+npm init --yes && npm pkg set type="module"
+npm i graphql @apollo/server
