@@ -38,14 +38,20 @@ export const typeDefs = `
   type Mutation {
     addGenre(input: AddGenreInput!): Genre!
     deleteGenre(id: ID!): Boolean!
+    updateGenre(id: ID!, input: UpdateGenreInput!): Genre
 
     addCourse(input: AddCourseInput!): Course!
     deleteCourse(id: ID!): Boolean!
+    updateCourse(id: ID!, input: UpdateCourseInput!): Course
 
     addReview(input: AddReviewInput!): Review!
     deleteReview(id: ID!): Boolean!
+    updateReview(id: ID!, input: UpdateReviewInput!): Review
   }
   input AddGenreInput {
+    name: String!
+  }
+  input UpdateGenreInput {
     name: String!
   }
   input AddCourseInput{
@@ -55,11 +61,25 @@ export const typeDefs = `
     discount: Boolean!
     genreId: ID!
   }
+  input UpdateCourseInput {
+    name: String
+    description: String
+    price: Float
+    discount: Boolean
+    genreId: ID
+  }
   input AddReviewInput {
     date: String!
     title: String!
     comment: String!
     rating: Int!
     courseId: ID!
+  }
+  input UpdateReviewInput {
+    date: String
+    title: String
+    comment: String
+    rating: Int
+    courseId: ID
   }
 `;

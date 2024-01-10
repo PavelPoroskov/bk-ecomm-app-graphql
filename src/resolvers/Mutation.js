@@ -21,6 +21,20 @@ export const Mutation = {
     
     return true;
   },
+  updateGenre: (parent, { id, input }, { db }) => {
+    const index = db.genres.findIndex(genre => genre.id === id);
+
+    if (index === -1) {
+      return null
+    }
+
+    db.genres[index] = {
+      ...db.genres[index],
+      ...input,
+    };
+
+    return db.genres[index];
+  },
 
   addCourse: (parent, args, { db }) => {
     const {
@@ -48,7 +62,21 @@ export const Mutation = {
 
     return true;
   },
+  updateCourse: (parent, { id, input }, { db }) => {
+    const index = db.courses.findIndex(course => course.id === id);
     
+    if (index === -1) {
+      return null
+    }
+
+    db.courses[index] = {
+      ...db.courses[index],
+      ...input,
+    };
+
+    return db.courses[index];
+  },
+
   addReview: (parent, args, { db }) => {
     const {
       date,
@@ -74,4 +102,18 @@ export const Mutation = {
 
     return true;
   },
+  updateReview: (parent, { id, input }, { db }) => {
+    const index = db.reviews.findIndex(review => review.id === id);
+
+    if (index === -1) {
+      return null
+    }
+    
+    db.reviews[index] = {
+      ...db.reviews[index],
+      ...input,
+    };
+    
+    return db.reviews[index];
+  }
 }
