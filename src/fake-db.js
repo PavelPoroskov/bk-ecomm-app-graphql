@@ -1,4 +1,4 @@
-export const courses = [
+const courses = [
   {
     id: "book-06",
     name: "TypeScript Basics",
@@ -57,12 +57,12 @@ export const courses = [
   },
 ];
 
-export const genres = [
+const genres = [
   { id: 'gen-01', name: 'Technical' },
   { id: 'gen-02', name: 'Sci-Fi' }
 ]
 
-export const reviews = [
+const reviews = [
   {
     id: "rev-01",
     date: "2024-01-01",
@@ -88,3 +88,9 @@ export const reviews = [
     courseId: "book-21",
   },
 ];
+
+export const db = {
+  courses,
+  genres,
+  reviews,
+}

@@ -13,7 +13,7 @@ export const filterCourses = ({ courses, filter, context }) => {
       let ratingSum = 0;
       let numOfReviews = 0;
 
-      context.reviews.forEach((review) => {
+      context.db.reviews.forEach((review) => {
         if (review.courseId === course.id) {
           ratingSum += review.rating;
           numOfReviews += 1;
