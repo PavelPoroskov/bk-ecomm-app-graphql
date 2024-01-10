@@ -1,17 +1,13 @@
+import { filterCourses } from './filter-logic/filterCourses.js';
+
 export const Query = {
-  // welcome: () => {
-  //   return "Hello World from GraphQL"
-  // },
-  // numOfCourses: () => {
-  //   return 14;
-  // },
-  // price: () => {
-  //   return 1165.78;
-  // },
-  // isTrainer: () => {
-  //   return true;
-  // },
-  courses: (parent, args, context) => context.courses,
+  courses: (parent, args, context) => {
+    return filterCourses({
+      courses: context.courses,
+      filter: args?.filter,
+      context,
+    });
+  },
   course: (parent, args, context) => {
     const courses = context.courses;
     const courseId = args.id;
@@ -26,5 +22,18 @@ export const Query = {
     const genre = genres.find(item => item.id === catId);
     
     return genre || null;
-  }
+  },
+
+  welcome: () => {
+    return "Hello World from GraphQL"
+  },
+  numOfCourses: () => {
+    return 14;
+  },
+  price: () => {
+    return 1165.78;
+  },
+  isTrainer: () => {
+    return true;
+  },
 }

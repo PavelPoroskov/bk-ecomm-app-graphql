@@ -1,9 +1,11 @@
 export const typeDefs = `
   type Query {
-    courses: [Course!]!
+    courses(filter: CoursesFilterInput): [Course!]!
     course(id: ID!): Course
     genres: [Genre!]!
     genre(id: ID!): Genre
+
+    welcome: String
     numOfCourses: Int
     price: Float
     isTrainer: Boolean
@@ -17,10 +19,14 @@ export const typeDefs = `
     genre: Genre
     reviews: [Review!]!
   }
+  input CoursesFilterInput {
+    discount: Boolean
+    avgRating: Int
+  }
   type Genre{
     id: ID!
     name: String!
-    courses: [Course!]!
+    courses(filter: CoursesFilterInput): [Course!]!
   }
   type Review {
     id: ID!

@@ -1,8 +1,16 @@
+import { filterCourses } from './filter-logic/filterCourses.js';
+
 export const Genre = {
   courses: (parent, args, context) => {
     const courses = context.courses;
     const genreId = parent.id;
-    
-    return courses.filter(item => item.genreId === genreId);
+
+    let filteredCourses = courses.filter(item => item.genreId === genreId);
+
+    return filterCourses({
+      courses: filteredCourses,
+      filter: args?.filter,
+      context,
+    });
   }
 }
