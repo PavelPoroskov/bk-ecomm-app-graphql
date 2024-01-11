@@ -1,0 +1,4 @@
+npm init --yes && npm pkg set type="module"
+npm i fastify mercurius graphql 
+npm i dotenv @fastify/env
+npm i mongoose

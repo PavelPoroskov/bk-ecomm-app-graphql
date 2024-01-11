@@ -1,10 +1,11 @@
 {
-  "name": "bk-ecomm-app-graphql",
+  "name": "app02-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "start": "node index.js",
+    "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,11 +13,10 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@apollo/server": "^4.10.0",
+    "@fastify/env": "^4.3.0",
+    "fastify": "^4.25.2",
     "graphql": "^16.8.1",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+    "mercurius": "^13.3.3",
+    "mongoose": "^8.0.4"
   }
 }

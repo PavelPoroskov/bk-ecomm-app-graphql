@@ -1,5 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+// TODO import as schema.graphql
 import { typeDefs } from './schema.js';
 import { Query } from './resolvers/Query.js';
 import { Mutation } from './resolvers/Mutation.js';
