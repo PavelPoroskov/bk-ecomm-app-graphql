@@ -26,11 +26,12 @@ await fastify.register(fastifyCheckEnvs, {
 
 fastify.register(mercurius, {
   schema: graphQLSchema,
-  graphiql: true,
+  graphiql: process.env.NODE_ENV === 'development',
 });
 
 const address = await fastify.listen({
   host: fastify.config.HOST,
   port: fastify.config.PORT,
 });
+
 console.log(`server listening on ${address}`)
