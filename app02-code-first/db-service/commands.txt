@@ -4,4 +4,4 @@ sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 docker compose up
 
 sudo dnf localinstall mongodb-mongosh-shared-openssl3-2.1.1.x86_64.rpm
-mongosh mongodb://localhost:27017
+mongosh mongodb://localhost:27017 --username .. --password ..
