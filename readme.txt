@@ -1,24 +1,46 @@
 training:
   MongoDb,
   Authentication,
-  GraphQL (schema first),
+  GraphQL (schema first), GraphQL (code first),
 
-TODO GraphQL (code first),
 TODO ?tests for graphql API
-TODO splitting schema/resolvers by course/genre. ?graphql-tools
-TODO ?rename course to book
+  TODO use the same api (projects and clients) in all app0x
+    can use the same test set for all apps
 
-app01-fake-db
-  schema first
+app01-js-schema-first
+  schema-first
   @apollo/server
   fake db
+    TODO use sqlite
+    TODO splitting schema/resolvers by course/genre. ?graphql-tools
+    TODO ?rename course to book
 
-app02
+app02-js-code-first
+  code-first (graphql.js)
   fastify && mercurius <-- express.js
+  mongodb from local container <-- mongodb from cloud
 
-  raw schema from graphql.js
-    is it "code first"?
-  ?replace with schema as string
+  TODO mercurius/use loaders
+  TODO seed db
+  TODO init script for app02-code-first
+    generate secrets for mongodb
+    store them, use in db, use in
 
-  mongodb from cloud
-  ?replace with mongodb from local container
+TODO GraphQL (code first),
+app10-ts-typegraphql
+  TypeScript
+  fastify && mercurius && TypeGraphQL ?&& TypeORM
+
+app11-ts-typegraphql
+  TypeScript
+  mercurius && NextJS
+
+TODO GraphQL (code first),
+app12-ts-nestjs
+  TypeScript
+  Nest.JS ()
+
+TODO app00-hello
+  no db
+  only scalar types
+  TODO scalar type Date

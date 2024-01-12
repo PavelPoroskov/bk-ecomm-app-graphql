@@ -5,8 +5,8 @@ services:
     ports:
       - "27017:27017"
     env_file:
-      - mongodb.env
+      - ./db-service/mongodb.env
     volumes:
       - type: bind
-        source: ./mongodb-data
+        source: ./db-service/mongodb-data
         target: /data/db
