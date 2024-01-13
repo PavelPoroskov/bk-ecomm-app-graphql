@@ -19,6 +19,7 @@ app02-js-code-first
   code-first (graphql.js)
   fastify && mercurius <-- express.js
   mongodb from local container <-- mongodb from cloud
+    we do not use context to pass db to resolvers
 
   TODO mercurius/use loaders
   TODO seed db
@@ -30,6 +31,7 @@ TODO GraphQL (code first),
 app10-ts-typegraphql
   TypeScript
   fastify && mercurius && TypeGraphQL ?&& TypeORM
+  TODO generate client code for api
 
 app11-ts-typegraphql
   TypeScript

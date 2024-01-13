@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import fastifyCheckEnvs from '@fastify/env'
+import cors from '@fastify/cors'
 import mercurius from 'mercurius';
 
 import { connectDB } from './db/index.js';
@@ -29,6 +30,8 @@ await fastify.register(fastifyCheckEnvs, {
 });
 
 await connectDB(fastify.config.MONGODB_URI)
+
+fastify.register(cors);
 
 fastify.register(mercurius, {
   schema: graphQLSchema,

@@ -1,0 +1,6 @@
+npm create vite@latest front -- --template react
+cd front
+npm i
+
+npm i @apollo/client graphql
+npm i react-router-dom
