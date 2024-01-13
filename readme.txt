@@ -46,3 +46,11 @@ TODO app00-hello
   no db
   only scalar types
   TODO scalar type Date
+
+?TODO shared validation json-schema for client and server: AddClient, addProject
+
+TODO ui is too simplified
+  need pagination
+    situation: new item is not visible in list 
+      notify message in bottom of screen
+  delete item. ask question before

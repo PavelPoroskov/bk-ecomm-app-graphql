@@ -86,7 +86,7 @@ const mutations = {
       id: { type: new GraphQLNonNull(GraphQLID) },
     },
     resolve(parent, args) {
-      return ProjectModel.findByIdAndRemove(args.id);
+      return ProjectModel.findByIdAndDelete(args.id);
     },
   },
   updateProject: {

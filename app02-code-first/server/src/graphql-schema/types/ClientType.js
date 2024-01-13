@@ -24,7 +24,7 @@ const queries = {
   clients: {
     type: new GraphQLList(ClientType),
     resolve(parent, args) {
-      return ClientModel.find();
+      return ClientModel.find().sort('name');
     },
   },
   client: {
@@ -60,7 +60,7 @@ const mutations = {
       id: { type: new GraphQLNonNull(GraphQLID) },
     },
     resolve(parent, args) {
-      return ClientModel.findByIdAndRemove(args.id);
+      return ClientModel.findByIdAndDelete(args.id);
     },
   },
   //??updateClient

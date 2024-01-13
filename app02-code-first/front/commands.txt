@@ -4,3 +4,12 @@ npm i
 
 npm i @apollo/client graphql
 npm i react-router-dom
+npm i react-icons
+
+npm run dev
+
+
+TODO fix styles: text in row
+?TODO fix mixin bootstrap and react (bootstrap shows modal)
+  AddClient.js
+?TODO use Formik for form in AddClient.js
