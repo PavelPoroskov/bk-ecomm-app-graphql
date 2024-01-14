@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import ProjectCard from './ProjectCard';
-import { GET_PROJECTS } from './queries';
+import { GET_PROJECTS } from '../api/queries';
 import Spinner from './Spinner';
 
 const Projects = () => {

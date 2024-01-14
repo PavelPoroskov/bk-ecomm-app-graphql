@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import ClientTableRow from './ClientTableRow';
 import Spinner from './Spinner';
-import { GET_CLIENTS } from './queries';
+import { GET_CLIENTS } from '../api/queries';
 
 const ClientTable = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);

@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { useState } from 'react'
 import { FaList } from 'react-icons/fa';
-import { GET_CLIENTS, GET_PROJECTS } from './queries';
-import { ADD_PROJECT } from './mutations';
+import { GET_CLIENTS, GET_PROJECTS } from '../api/queries';
+import { ADD_PROJECT } from '../api/mutations';
 
 const AddProject = () => {
   const [name, setName] = useState('');
