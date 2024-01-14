@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaIdBadge } from 'react-icons/fa';
 import { GET_PROJECT } from '../api/queries';
 import Spinner from './Spinner';
+import EditProject from './EditProject';
 import DeleteProject from './DeleteProject';
 
 const Project = () => {
@@ -31,6 +32,7 @@ const Project = () => {
         <li className='list-group-item'><FaPhone className='icon' />
           {data.project.client.phone}</li>
       </ul>
+      <EditProject project={data.project} />
       <DeleteProject projectId={data.project.id} />
     </div>
   )

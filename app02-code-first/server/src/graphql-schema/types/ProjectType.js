@@ -64,7 +64,7 @@ const mutations = {
       description: { type: new GraphQLNonNull(GraphQLString) },
       status: {
         type: ProjectStatusType,
-        // TODO we can use {}.NotStarted in js or enum.NotStarted in ts
+        // TODO we can use {}.new in js or enum.new in ts
         defaultValue: 'Not Started',
       },
       clientId: { type: new GraphQLNonNull(GraphQLID) },
