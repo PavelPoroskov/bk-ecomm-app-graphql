@@ -10,6 +10,8 @@ const ClientTable = () => {
 
   if (error) return <p>Something Went Wrong</p>;
 
+  if (data.clients.length === 0) return <p>No Clients</p>;
+
   return (
     <table className='table table-hover mt-3'>
       <thead>

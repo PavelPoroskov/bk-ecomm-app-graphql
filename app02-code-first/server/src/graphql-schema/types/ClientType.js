@@ -8,6 +8,7 @@ import {
 
 import {
   ClientModel,
+  ProjectModel,
 } from '../../db/index.js';
 
 export const ClientType = new GraphQLObjectType({
@@ -60,6 +61,13 @@ const mutations = {
       id: { type: new GraphQLNonNull(GraphQLID) },
     },
     resolve(parent, args) {
+      ProjectModel.find({ clientId: args.id })
+        .then((projects) => {
+          projects.forEach((project) => {
+            project.remove();
+          });
+        });
+
       return ClientModel.findByIdAndDelete(args.id);
     },
   },
