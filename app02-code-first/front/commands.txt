@@ -13,3 +13,7 @@ TODO fix styles: text in row
 ?TODO fix mixin bootstrap and react (bootstrap shows modal)
   AddClient.js
 ?TODO use Formik for form in AddClient.js
+
+app w TypeScript
+  server: tsconfig
+  front: npm create vite -- react-ts

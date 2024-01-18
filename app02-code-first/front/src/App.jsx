@@ -7,7 +7,7 @@ import Project from "./components/Project";
 import NotFound from "./components/NotFound";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: process.env.VITE_API_URI,
   cache: new InMemoryCache(),
 });
 

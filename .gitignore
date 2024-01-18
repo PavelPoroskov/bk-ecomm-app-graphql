@@ -132,3 +132,4 @@ dist
 mongodb-data/
 secrets/
 mongodb.env
+*.env
