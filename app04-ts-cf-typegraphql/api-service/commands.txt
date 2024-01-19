@@ -1,21 +1,18 @@
 npm init --yes && npm pkg set type="module"
 npm i -D typescript @types/node
 npx tsc --init
-npm i -D ts-node
-npm i dotenv
 
-npm i graphql graphql-scalars type-graphql
-npm i reflect-metadata
-npm i class-validator
+npm i fastify @fastify/cors
+npm i dotenv
 
 npm i mongoose
 npm i @typegoose/typegoose
 
-npm i fastify @fastify/cors
 npm i mercurius
-
-npm i graphql@16 graphql-scalars type-graphql@next
+npm i type-graphql@next reflect-metadata class-validator
   mercurius@13 use graphql@16
-  type-graphql use graphql@15
+  type-graphql@latest use graphql@15
       mercurius@8 use graphql@15
+  TODO update type-graphql@2.0.0-beta.6 after available
+npm i graphql@16 graphql-scalars 
 
