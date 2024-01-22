@@ -10,52 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-// import 'reflect-metadata/lite';
-import 'reflect-metadata';
-import { Arg, Field, ID, ObjectType, Resolver, Query, Mutation, registerEnumType, InputType, } from "type-graphql";
-import { prop, getModelForClass, modelOptions } from '@typegoose/typegoose';
+import { Arg, Field, Resolver, Query, Mutation, InputType, } from "type-graphql";
 import * as mongoose from 'mongoose';
 import { ObjectIdScalar } from '../types.js';
-export var UserStatus;
-(function (UserStatus) {
-    UserStatus["Active"] = "Active";
-    UserStatus["Blocked"] = "Blocked";
-    UserStatus["Delete"] = "Delete";
-})(UserStatus || (UserStatus = {}));
-registerEnumType(UserStatus, {
-    name: "UserStatus",
-});
-let User = class User {
-    //@prop({ unique: true }) // causes error Cannot return null for non-nullable field User.id.
-    id;
-    name;
-    email;
-    status;
-};
-__decorate([
-    Field(type => ID),
-    __metadata("design:type", mongoose.Types.ObjectId)
-], User.prototype, "id", void 0);
-__decorate([
-    Field(type => String),
-    prop({ required: true }),
-    __metadata("design:type", String)
-], User.prototype, "name", void 0);
-__decorate([
-    Field(type => String),
-    prop({ required: true }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
-__decorate([
-    Field(type => String),
-    prop({ default: UserStatus.Active, required: true }),
-    __metadata("design:type", String)
-], User.prototype, "status", void 0);
-User = __decorate([
-    ObjectType(),
-    modelOptions({ schemaOptions: { timestamps: true } })
-], User);
-export { User };
+import { User, UserModel as Model } from './User.type.js';
 let NewUserInput = class NewUserInput {
     name;
     email;
@@ -83,8 +41,6 @@ UpdateUserInput = __decorate([
     InputType()
 ], UpdateUserInput);
 export { UpdateUserInput };
-const Model = getModelForClass(User);
-export const UserModel = Model;
 let UserResolver = class UserResolver {
     // async user(@Arg("id") id: ObjectId) { causes error Unable to infer GraphQL type from TypeScript reflection system. 
     //  You need to provide explicit type for argument named 'id' of 'user' of 'UserResolver' class
@@ -170,6 +126,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserResolver.prototype, "updateUser", null);
 UserResolver = __decorate([
-    Resolver(UserModel)
+    Resolver(User)
 ], UserResolver);
 export { UserResolver };

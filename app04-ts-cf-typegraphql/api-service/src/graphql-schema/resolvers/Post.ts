@@ -1,71 +1,19 @@
-import 'reflect-metadata/lite';
 import {
   Arg,
-  Args,
   Field, 
   FieldResolver,
-  ID, 
   InputType,
   Mutation,
-  ObjectType,
   Query,
-  registerEnumType, 
   Resolver, 
   Root,
 } from "type-graphql";
-import { prop, Ref, getModelForClass, modelOptions } from '@typegoose/typegoose';
 import * as mongoose from 'mongoose';
 
-// import { Ref, ObjectIdScalar } from '../types.js';
 import { ObjectIdScalar } from '../types.js';
-import { User, UserModel } from './User.js';
+import { User, UserModel } from './User.type.js';
+import { Post, PostModel as Model, PostStatus } from './Post.type.js';
 
-export enum PostStatus {
-  NotPublished = 'Not Published',
-  Published = 'Published',
-  Censored = 'Censored',
-}
-
-registerEnumType(PostStatus, {
-  name: "PostStatus",
-});
-
-@ObjectType()
-@modelOptions({ schemaOptions: { timestamps: true } })
-export class Post {
-  @Field(type => ID)
-  readonly id: mongoose.Types.ObjectId;
-
-  @Field()
-  @prop({ required: true })
-  title: string;
-
-  @Field()
-  @prop()
-  content?: string;
-
-  @Field(_type => User)
-  @prop({ ref: () => User, required: true })
-  author!: Ref<User>;
-    // @prop({ ref: () => User, required: true })
-    // author: Ref<User>;
-
-  @Field()
-  @prop({ default: PostStatus.NotPublished, required: true, })
-  status: PostStatus;
-
-  // @Field(type => Date)
-  // @prop()
-  // creationDate?: Date;
-
-  // @Field(type => Date)
-  // @prop()
-  // updateDate?: Date;
-
-  // @Field()
-  // @prop({ required: true })
-  // publishDate!: Date;
-}
 
 @InputType()
 export class NewPostInput implements Partial<Post> {
@@ -87,9 +35,6 @@ export class UpdatePostInput implements Partial<Post> {
   @Field({ nullable: true })
   content?: string;
 }
-
-const Model = getModelForClass(Post);
-export const PostModel = Model;
 
 @Resolver(Post)
 export class PostResolver {

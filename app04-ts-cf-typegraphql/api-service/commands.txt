@@ -16,3 +16,10 @@ npm i type-graphql@next reflect-metadata class-validator
   TODO update type-graphql@2.0.0-beta.6 after available
 npm i graphql@16 graphql-scalars 
 
+does not work
+    "dev1": "tsx watch ./src/server.ts",
+    "dev-seed-db0": "ts-node ./scripts/seedDb.ts",
+    "dev-seed-db1": "tsx --tsconfig ./tsconfig.json ./scripts/seedDb.ts",
+use
+    "dev": "tsc --watch & node --watch ./build/src/server.js",
+    "dev-seed-db": "tsc && node ./build/scripts/seedDb.js",

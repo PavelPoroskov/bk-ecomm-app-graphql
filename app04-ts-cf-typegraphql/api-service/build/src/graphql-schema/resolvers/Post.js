@@ -10,60 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import 'reflect-metadata/lite';
-import { Arg, Field, FieldResolver, ID, InputType, Mutation, ObjectType, Query, registerEnumType, Resolver, Root, } from "type-graphql";
-import { prop, getModelForClass, modelOptions } from '@typegoose/typegoose';
+import { Arg, Field, FieldResolver, InputType, Mutation, Query, Resolver, Root, } from "type-graphql";
 import * as mongoose from 'mongoose';
-// import { Ref, ObjectIdScalar } from '../types.js';
 import { ObjectIdScalar } from '../types.js';
-import { User, UserModel } from './User.js';
-export var PostStatus;
-(function (PostStatus) {
-    PostStatus["NotPublished"] = "Not Published";
-    PostStatus["Published"] = "Published";
-    PostStatus["Censored"] = "Censored";
-})(PostStatus || (PostStatus = {}));
-registerEnumType(PostStatus, {
-    name: "PostStatus",
-});
-let Post = class Post {
-    id;
-    title;
-    content;
-    author;
-    // @prop({ ref: () => User, required: true })
-    // author: Ref<User>;
-    status;
-};
-__decorate([
-    Field(type => ID),
-    __metadata("design:type", mongoose.Types.ObjectId)
-], Post.prototype, "id", void 0);
-__decorate([
-    Field(),
-    prop({ required: true }),
-    __metadata("design:type", String)
-], Post.prototype, "title", void 0);
-__decorate([
-    Field(),
-    prop(),
-    __metadata("design:type", String)
-], Post.prototype, "content", void 0);
-__decorate([
-    Field(_type => User),
-    prop({ ref: () => User, required: true }),
-    __metadata("design:type", Object)
-], Post.prototype, "author", void 0);
-__decorate([
-    Field(),
-    prop({ default: PostStatus.NotPublished, required: true, }),
-    __metadata("design:type", String)
-], Post.prototype, "status", void 0);
-Post = __decorate([
-    ObjectType(),
-    modelOptions({ schemaOptions: { timestamps: true } })
-], Post);
-export { Post };
+import { UserModel } from './User.type.js';
+import { Post, PostModel as Model, PostStatus } from './Post.type.js';
 let NewPostInput = class NewPostInput {
     title;
     content;
@@ -101,8 +52,6 @@ UpdatePostInput = __decorate([
     InputType()
 ], UpdatePostInput);
 export { UpdatePostInput };
-const Model = getModelForClass(Post);
-export const PostModel = Model;
 let PostResolver = class PostResolver {
     async post(id) {
         const post = await Model.findById(id);

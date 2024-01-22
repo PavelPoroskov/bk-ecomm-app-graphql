@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc --watch & node --watch ./build/src/server.js",
-    "dev1": "tsx watch ./src/server.ts",
-    "dev-seed-db0": "ts-node ./scripts/seedDb.ts",
-    "dev-seed-db1": "tsx --tsconfig ./tsconfig.json ./scripts/seedDb.ts",
-    "dev-seed-db": "npm run build && node ./build/scripts/seedDb.js",
+    "dev-seed-db": "tsc && node ./build/scripts/seedDb.js",
     "build": "rm -rf build && tsc",
     "start": "node ./build/src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

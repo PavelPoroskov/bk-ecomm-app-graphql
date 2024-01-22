@@ -1,54 +1,14 @@
-// import 'reflect-metadata/lite';
-import 'reflect-metadata';
 import {
   Arg,
-  Args,
   Field, 
-  ID, 
-  ObjectType,
   Resolver, 
   Query,
   Mutation,
-  registerEnumType,
   InputType,
 } from "type-graphql";
-import { prop, getModelForClass, modelOptions } from '@typegoose/typegoose';
 import * as mongoose from 'mongoose';
 import { ObjectIdScalar } from '../types.js';
-
-export enum UserStatus {
-  Active = 'Active',
-  Blocked = 'Blocked',
-  Delete = 'Delete',
-}
-
-registerEnumType(UserStatus, {
-  name: "UserStatus",
-});
-
-@ObjectType()
-@modelOptions({ schemaOptions: { timestamps: true } })
-export class User {
-  //@prop({ unique: true }) // causes error Cannot return null for non-nullable field User.id.
-  @Field(type => ID)
-  readonly id: mongoose.Types.ObjectId;
-
-  @Field(type => String)
-  @prop({ required: true })
-  name: string;
-
-  @Field(type => String)
-  @prop({ required: true })
-  email: string;
-
-  @Field(type => String)
-  @prop({ default: UserStatus.Active, required: true })
-  status: UserStatus;
-
-  // @Field(type => Date)
-  // @prop()
-  // creationDate?: Date;
-}
+import { User, UserModel as Model, UserStatus } from './User.type.js';
 
 @InputType()
 export class NewUserInput implements Partial<User> {
@@ -69,10 +29,7 @@ export class UpdateUserInput implements Partial<User> {
   // email?: string;
 }
 
-const Model = getModelForClass(User);
-export const UserModel = Model;
-
-@Resolver(UserModel)
+@Resolver(User)
 export class UserResolver {
 
   @Query(returns => User)

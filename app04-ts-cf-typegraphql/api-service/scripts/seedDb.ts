@@ -2,8 +2,8 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
 import { getConfig } from '../src/config.js';
-import { UserModel } from "../src/graphql-schema/resolvers/User.js";
-import { PostModel } from "../src/graphql-schema/resolvers/Post.js";
+import { UserModel } from "../src/graphql-schema/resolvers/User.type.js";
+import { PostModel } from "../src/graphql-schema/resolvers/Post.type.js";
 
 const makeCreatePostList = (userOne) => {
   let i1 = 0;
