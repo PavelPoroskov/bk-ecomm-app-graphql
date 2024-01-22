@@ -11,6 +11,8 @@ TODO ?tests for graphql API
       ??HOW reuse the same test set for two apps
     can use the same front for all apps
 
+    api author-post is more suitable for auth training
+
 app01-js-schema-first
   schema-first
   @apollo/server

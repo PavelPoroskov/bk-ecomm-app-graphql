@@ -7,7 +7,9 @@ import { connectDB } from './db.js';
 import { graphQLSchema } from './graphql-schema/graphql-schema.js';
 dotenv.config({ path: './.env' });
 const CONFIG = getConfig();
-const app = fastify();
+const app = fastify({
+    logger: process.env.NODE_ENV === 'development',
+});
 await connectDB(CONFIG.MONGODB_URI);
 app.register(cors);
 app.register(mercurius, {

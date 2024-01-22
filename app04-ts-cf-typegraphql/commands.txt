@@ -1,1 +1,4 @@
 sudo docker compose up
+
+// clean db
+sudo rm -rf db-service/mongodb-data && mkdir db-service/mongodb-data
